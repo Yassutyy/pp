@@ -59,7 +59,7 @@ elif option == "📊 Visualizations":
 # Predictor Page
 elif option == "🧠 Predictor":
     st.subheader("⚙️ Choose Prediction Model")
-    model_choice = st.radio("Select Model", ["Linear Regression", "Random Forest"])
+    model_choice = st.radio("Select Model", ["Linear Regression - 0.31 (R2 Score) ", "Random Forest - 0.64 (R2 Score)"])
 
     st.markdown("### 📝 Input Car Details")
     brand = st.selectbox("Select Car Brand", df['Brand'].unique())
