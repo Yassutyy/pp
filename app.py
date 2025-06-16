@@ -75,9 +75,13 @@ elif option == "🧠 Predictor":
 
             if model_choice == "Linear Regression":
                 prediction = model_lr.predict(features)[0]
-                st.success(f"💸 Predicted Price (Linear Regression): ₹ {int(prediction):,}")
+                prediction = max(0, int(prediction))  # 🔧 This line ensures no negative values
+                st.success(f"💸 Predicted Price (Linear Regression): ₹ {prediction:,}")
+
             else:
                 prediction = model_rf.predict(features)[0]
-                st.success(f"💸 Predicted Price (Random Forest): ₹ {int(prediction):,}")
+                prediction = max(0, int(prediction))  # Prevents negative values
+                st.success(f"💸 Predicted Price (Random Forest): ₹ {prediction:,}")
+
         except Exception as e:
             st.error(f"❌ Prediction failed: {e}")
